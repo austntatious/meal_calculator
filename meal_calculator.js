@@ -17,26 +17,31 @@ var menu = [{steak: 16.99},
             {soup: 5.49},
             {chicken: 8.95}],
     taxRate = .08,
-    tipRate = .15;
+    tipRate = .15,
+    billTotal = billSubtotal+taxTotal+tipTotal,
+    billSubtotal = undefined,
+    taxTotal = taxRate*billSubtotal,
+    tipTotal = tipRate*billSubtotal;
 
 // Diner Object constructor
 // diner obj prototype should have all NON unique methods, tax calculation, tip
-console.log("This is working!");
+
 var Diner = function Diner(dinerName) {
     this.dinerName = dinerName;
     this.dishes = [];
-    this.tip = undefined;
-    this.tax = undefined;
-    this.subtotal = undefined;
-    this.totalDue = undefined;
+    this.tipDue = this.subtotal*tipRate;
+    this.taxDue = this.subtotal*taxRate;
+    //for subtotal, loop through array of obj in dishes property and sum values 
+    this.subtotal = ,
+    this.totalDue = this.subtotal + this.tip + this.tax;
     };
     
 Diner.prototype = {
     taxCalc: function(){
-        
+        this.subtotal()*taxRate;
     },
     tipCalc: function(){
-        
+        this.subtotal()*tipRate;
     },
     addDish: function(dish){
         //check if dish exists in object array and push obj to dishes array
@@ -45,16 +50,31 @@ Diner.prototype = {
         }
         this.dishes.push(menu.filter(doesDishExist));
     },
+    //loop through dishes and add to total sum
     calcSubtotal: function() {
         
-    },
-    calcTotalDue: function (){
-        this.totalDue = this.subtotal + this.tip + this.tax;
+        //make current Diner object's subtotal equal to the result
     },
     
 };
 
-// Print Total Bill
+//find billsubtotal by adding all Diners subtotals with function
 
+// Print Total Bill - subtotal, tax, tip, and total
+function printBill(){
+    
+}
+// loop through all instances of Diner objects, and add subtotal, total,
+// tax and tip and print to console
 
 // Print what each Diner owes
+// find all objects that inherit from Diner and 
+function printDiner(){
+    
+    
+}
+
+//loop through all obj that inherit from Diner and execute printDiner
+function printFullBreakdown(){
+    
+}
